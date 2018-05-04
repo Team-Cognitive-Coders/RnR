@@ -3,10 +3,6 @@ const login = require("facebook-chat-api");
 const fs = require("fs");
 const bodyParser = require("body-parser");
 
-const Bot = require('./models/bots');
-const TestCase = require('./models/testcase');
-const mongoose = require('./db/mongoose');
-
 var app = express();
 var credentials, fbApi, payload = {}, pageId;
 app.use(express.static(__dirname + '/public'));
