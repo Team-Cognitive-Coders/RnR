@@ -14,7 +14,7 @@ app.post('/saveTestCase', (request, response) => {
     var fileName = payload.testCaseName;
     var chats = payload.chats;
 
-    fs.appendFile("/convo/"+fileName+".json", JSON.stringify(chats), (error) => {
+    fs.appendFile("convo/"+fileName+".json", JSON.stringify(chats), (error) => {
         if(error)
             response.status(500).send();
         response.status(200).send();

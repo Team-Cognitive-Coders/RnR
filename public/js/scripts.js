@@ -35,7 +35,7 @@
             type : "GET",
             dataType : "json",
             success : function(response){
-                if(repsonse){
+                if(response){
                     testCasePayload.chats = response;
                     reRunTestCase();
                 }
@@ -45,6 +45,7 @@
             }
         });
     }
+    
     initializeTestCasePayload();
     setAccessToken("aaa1e59cf7ec4f5dbf5182e0cc754a59");
     $(".messages").animate({ scrollTop: $(document).height() }, "fast");
@@ -55,6 +56,7 @@
             return false;
         }
         addUserMessageToUI(message);
+        addUserMessageToPayload(message);
         sendUserMessage(message);
     };
     function sendUserMessage(message){
@@ -66,6 +68,7 @@
                 result = "";
             }
             addBotMessageToUI(result);
+            addBotMessageToPayload(result);
         }).catch(function(){
 
         });
@@ -86,19 +89,53 @@
             return false;
         }
     });
-
-    function addUserMessageToUI(message){
+    function addUserMessageToPayload(message){
         testCasePayload.chats[new Date().getTime()+"_USER"] = message;
+    }
+    function addBotMessageToPayload(message){
+        testCasePayload.chats[new Date().getTime()+"_BOT"] = message;
+    }
+    function addUserMessageToUI(message){
         $('<li class="sent"><img src="http://emilcarlsson.se/assets/mikeross.png" alt="" /><p>' + message + '</p></li>').appendTo($('.messages ul'));
         $('.message-input input').val(null);
         $('.contact.active .preview').html('<span>You: </span>' + message);
         $(".messages").animate({ scrollTop: $(document).height() }, "fast");
     };
     function addBotMessageToUI(message){
-        testCasePayload.chats[new Date().getTime()+"_BOT"] = message;
         $('<li class="replies"><img src="http://emilcarlsson.se/assets/mikeross.png" alt="" /><p>' + message + '</p></li>').appendTo($('.messages ul'));
         $('.message-input input').val(null);
         $('.contact.active .preview').html('<span>You: </span>' + message);
         $(".messages").animate({ scrollTop: $(document).height() }, "fast");
     };
+    //======ReRun Test Case========Need to be modified
+    function reRunTestCase(){
+        var tempTestCasePayload = jQuery.extend({}, testCasePayload).chats;
+        sendMessageTemp(tempTestCasePayload, Object.keys(tempTestCasePayload)[0]);
+    }
+    function sendMessageTemp(payload, key){
+        addUserMessageToUI(payload[key]);
+        client.textRequest(payload[key]).then(function(response){
+            var result;
+            try {
+                result = response.result.fulfillment.speech
+            } catch(error) {
+                result = "";
+            }
+            addBotMessageToUI(result);
+            if(payload[Object.keys(payload)[0]] != result){
+                alert("Error: Expected - "+payload[Object.keys(payload)[0]]);
+            }
+            else{
+                delete payload[Object.keys(payload)[0]];
+                if(payload[Object.keys(payload)[0]])
+                    sendMessageTemp(payload, Object.keys(payload)[0]);
+                else
+                    alert("Success");
+            }
+        }).catch(function(){
+
+        });
+        delete payload[key];
+    }
+
 })();
