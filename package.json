@@ -1,0 +1,23 @@
+{
+  "name": "recordrunlocal",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Team-Cognitive-Coders/RnR.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Team-Cognitive-Coders/RnR/issues"
+  },
+  "homepage": "https://github.com/Team-Cognitive-Coders/RnR#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.3"
+  }
+}
