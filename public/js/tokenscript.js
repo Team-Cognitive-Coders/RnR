@@ -12,10 +12,12 @@ $(".reset").click(function() {
   initializeTestCasePayload();
 });
 
-$('.save').click(function () {
-  setTestCaseName();
-    saveTestCase();
+$('#testCaseSubmit').click(function () {
+  var testCase = $('#nameOfTestCase').val();
+  setTestCaseName(testCase);
+  saveTestCase();
 });
+
 $('.run').click(function () {
     readTestCase("Test");
 });

@@ -72,7 +72,8 @@
 			<img src="./images/bot.png" alt="" />
 			<p>Harvey Specter</p>
 			<div class="custom-buttons">
-				<i><button class="fa save-button button2 save" >Save</button></i>
+
+				<i><button class="fa save-button button2" data-toggle="modal" data-target="#saveModal" >Save</button></i>
 				<i><button class="fa save-button button2 reset" >Reset</button></i>
 				<i><button class="fa save-button button2 run" >Run</button></i>
 			</div>
@@ -90,7 +91,7 @@
 		</div>
 	</div>
 </div>
-
+<!-- Modal for getting token -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="vertical-alignment-helper">
         <div class="modal-dialog vertical-align-center">
@@ -115,6 +116,35 @@
         </div>
     </div>
 </div>
+
+<!-- Modal for saving Testcase-->
+<div class="modal fade" id="saveModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="vertical-alignment-helper">
+        <div class="modal-dialog vertical-align-center">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+
+                    </button>
+                     <h4 class="modal-title" id="myModalLabel">Enter name of test case to be saved</h4>
+
+                </div>
+                <div class="modal-body">
+									<h5>Test case Name</h5>
+								<input id="nameOfTestCase" type="text"></input>
+
+								</div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="testCaseSubmit" data-dismiss="modal">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
 
 <script src="./js/scripts.js"></script>
 <script src="./js/tokenscript.js"></script>
