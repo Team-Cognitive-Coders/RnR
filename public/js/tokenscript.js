@@ -21,7 +21,8 @@ $('#testCaseSubmit').click(function () {
 });
 
 $('.run').click(function () {
-    readTestCase("Test");
+  setAccessToken("377422fb9dcb4abf98242fb14afa8311");
+    readTestCase("TestGoa");
 });
 
 })();
