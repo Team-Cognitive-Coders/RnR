@@ -1,13 +1,13 @@
 (function () {
 
     var testCasePayload, client;
-    function initializeTestCasePayload(){
+    initializeTestCasePayload = function(){
         testCasePayload = {
             testCaseName : "",
             chats : {}
         }
     }
-    function setTestCaseName(testCaseName){
+    setTestCaseName= function(testCaseName){
         testCasePayload.testCaseName = testCaseName;
     }
 
@@ -15,7 +15,7 @@
         client = new ApiAi.ApiAiClient({accessToken: token});
     }
 
-    function saveTestCase(){
+    saveTestCase = function(){
         $.ajax({
             url : "/saveTestCase",
             data : testCasePayload,
@@ -29,7 +29,7 @@
             }
         });
     }
-    function readTestCase(testCaseName){
+    readTestCase = function(testCaseName){
         testCasePayload.testCaseName = testCaseName;
         $.ajax({
             url : "/readTestCase",
@@ -49,7 +49,7 @@
     }
 
     initializeTestCasePayload();
-    //setAccessToken("aaa1e59cf7ec4f5dbf5182e0cc754a59");
+    //setAccessToken("377422fb9dcb4abf98242fb14afa8311");
     $(".messages").animate({ scrollTop: $(document).height() }, "fast");
 
     function newMessage() {
@@ -78,12 +78,7 @@
     $('.submit').click(function () {
         newMessage();
     });
-    $('.save').click(function () {
-        saveTestCase();
-    });
-    $('.run').click(function () {
-        readTestCase("Test");
-    });
+
 
     $(window).on('keydown', function (e) {
         if (e.which == 13) {
