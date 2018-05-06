@@ -41,12 +41,12 @@
 		<div id="profile">
 			<div class="wrap">
 				<img id="profile-img" src="./images/profile.jpg" class="online" alt="" />
-				<p>Mike Ross</p>
+				<p>Zypnos Labs</p>
 			</div>
 		</div>
 		<div id="search">
 			<label for=""><i class="fa fa-search" aria-hidden="true"></i></label>
-			<input type="text" placeholder="Search contacts..." />
+			<input type="text" placeholder="Search Bots..." />
 		</div>
 		<div id="contacts">
 			<ul class="testList">
@@ -55,8 +55,8 @@
 						<span class="contact-status online"></span>
 						<img src="./images/bot.png" alt="" />
 						<div class="meta">
-							<p class="name">Louis Litt</p>
-							<p class="preview">You just got LITT up, Mike.</p>
+							<p class="name botName">Louis Litt</p>
+							<p class="preview"></p>
 						</div>
 					</div>
 				</li>
@@ -70,7 +70,7 @@
 	<div class="content">
 		<div class="contact-profile">
 			<img src="./images/bot.png" alt="" />
-			<p>Harvey Specter</p>
+			<p class="botName">Harvey Specter</p>
 			<div class="custom-buttons">
 
 				<i><button class="fa save-button button2" data-toggle="modal" data-target="#saveModal" >Save</button></i>
@@ -106,7 +106,8 @@
                 <div class="modal-body">
 									<h5>Bot token</h5>
 								<input id="bottoken" type="text"></input>
-
+								<h5>Bot Name</h5>
+							<input id="botNameId" type="text"></input>
 								</div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

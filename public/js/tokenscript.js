@@ -4,6 +4,8 @@
 $('#tokenSubmit').click(function () {
   var token = $('#bottoken').val();
   setAccessToken(token);
+  var botName = $('#botNameId').val();
+  $(".botName").html(botName);
 });
 
 
