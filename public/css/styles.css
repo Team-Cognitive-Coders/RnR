@@ -12,7 +12,7 @@ body {
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.004);
     -webkit-font-smoothing: antialiased;
   }
-  
+
   #frame {
     width: 95%;
     min-width: 360px;
@@ -527,18 +527,22 @@ body {
   #frame .content .contact-profile p {
     float: left;
   }
-  #frame .content .contact-profile .social-media {
+  #frame .content .contact-profile . {
     float: right;
   }
-  #frame .content .contact-profile .social-media i {
+  #frame .content .contact-profile .custom-buttons i {
     margin-left: 14px;
     cursor: pointer;
   }
-  #frame .content .contact-profile .social-media i:nth-last-child(1) {
+  #frame .content .contact-profile .custom-buttons i:nth-last-child(1) {
     margin-right: 20px;
   }
-  #frame .content .contact-profile .social-media i:hover {
+  #frame .content .contact-profile .custom-buttons i:hover {
     color: #435f7a;
+  }
+
+  #frame .custom-buttons {
+    float: right;
   }
   #frame .content .messages {
     height: auto;
@@ -667,3 +671,23 @@ body {
   #frame .content .message-input .wrap button:focus {
     outline: none;
   }
+
+  .modal {
+}
+.vertical-alignment-helper {
+    display:table;
+    height: 100%;
+    width: 100%;
+}
+.vertical-align-center {
+    /* To center vertically */
+    display: table-cell;
+    vertical-align: middle;
+}
+.modal-content {
+    /* Bootstrap sets the size of the modal in the modal-dialog class, we need to inherit it */
+    width:inherit;
+    height:inherit;
+    /* To center horizontally */
+    margin: 0 auto;
+}

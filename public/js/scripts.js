@@ -10,9 +10,11 @@
     function setTestCaseName(testCaseName){
         testCasePayload.testCaseName = testCaseName;
     }
-    function setAccessToken(token){
+
+    setAccessToken = function(token){
         client = new ApiAi.ApiAiClient({accessToken: token});
     }
+
     function saveTestCase(){
         $.ajax({
             url : "/saveTestCase",
@@ -45,9 +47,9 @@
             }
         });
     }
-    
+
     initializeTestCasePayload();
-    setAccessToken("aaa1e59cf7ec4f5dbf5182e0cc754a59");
+    //setAccessToken("aaa1e59cf7ec4f5dbf5182e0cc754a59");
     $(".messages").animate({ scrollTop: $(document).height() }, "fast");
 
     function newMessage() {
